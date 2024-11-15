@@ -13,4 +13,11 @@ export class ProdutoRepository {
         return this.produtos
     }
 
+    async existeComUsuarioId(usuarioId: number) {
+        const possivelProduto = this.produtos.find(
+            produto => produto.usuarioId === usuarioId
+        );
+        return possivelProduto !== undefined;
+    }
+
 }

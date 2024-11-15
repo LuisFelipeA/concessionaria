@@ -1,5 +1,6 @@
 import { Type } from 'class-transformer';
 import {  ArrayMinSize,  IsArray,  IsNotEmpty,  IsNumber,  IsString,  IsUrl,  MaxLength,  Min,  ValidateNested} from 'class-validator';
+import { UsuarioIdEhUnico } from '../validacao/usuarioId-eh-unico.validator';
 
 export class CaracteristicaProdutoDTO {
 
@@ -24,6 +25,9 @@ export class ImagemProdutoDTO {
 }
 
 export class CriaProdutoDTO {
+
+  @UsuarioIdEhUnico({ message: "Já existe um produto com este UsuarioId"})
+  usuarioId: number;
 
   @IsString()
   @IsNotEmpty({ message: 'Nome do produto não pode ser vazio' })
