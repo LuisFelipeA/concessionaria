@@ -27,7 +27,7 @@ export class ImagemProdutoDTO {
 export class CriaProdutoDTO {
 
   @UsuarioIdEhUnico({ message: "Já existe um produto com este UsuarioId"})
-  usuarioId: number;
+  usuarioId: string;
 
   @IsString()
   @IsNotEmpty({ message: 'Nome do produto não pode ser vazio' })
