@@ -28,8 +28,8 @@ export class ProdutoController {
         produtoEntity.quantidade = dadosDoProduto.quantidade;
         produtoEntity.descricao = dadosDoProduto.descricao;
         produtoEntity.categoria = dadosDoProduto.categoria;
-        produtoEntity.caracteristicas = dadosDoProduto.caracteristicas;
-        produtoEntity.imagens = dadosDoProduto.imagens;
+        // produtoEntity.caracteristicas = dadosDoProduto.caracteristicas;
+        // produtoEntity.imagens = dadosDoProduto.imagens;
         
         this.produtoRepository.salvar(produtoEntity);
 
