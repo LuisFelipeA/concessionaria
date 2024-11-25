@@ -27,11 +27,11 @@ export class ProdutoEntity {
     @CreateDateColumn({name: 'created_at'})
     createdAt: string;
 
-    @UpdateDateColumn({name: 'update_at'})
-    updateAt: string;
+    @UpdateDateColumn({name: 'updated_at'})
+    updatedAt: string;
 
-    @DeleteDateColumn({name: 'delete_at'})
-    deleteAt: string;
+    @DeleteDateColumn({name: 'deleted_at'})
+    deletedAt: string;
 
     // caracteristicas: CaracteristicaProduto[];
     // imagens: ImagemProduto[];
