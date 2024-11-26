@@ -5,24 +5,21 @@ import { UsuarioEntity } from "./usuario.entity";
 import { v4 as uuid } from "uuid"; // para usar uuid - npm install uuid e npm install -D @types/uuid
 import { ListaUsuarioDTO } from "./dto/ListaUsuario.dto";
 import { AtualizaUsuarioDTO } from "./dto/AtualizaUsuario.dto";
+import { UsuarioService } from "./usuario.service";
 
 @Controller('/usuarios')
 export class UsuarioController {
 
-    constructor (private usuarioRepository: UsuarioRepository) {}
+    constructor (
+        private usuarioRepository: UsuarioRepository,
+        private usuarioService: UsuarioService
+    ) {}
 
     @Get()
     async listaUsuarios(){
-        const usuariosSalvos = await this.usuarioRepository.listar();
+        const usuariosSalvos = await this.usuarioService.listaUsuarios();
 
-        const usuarioLista = usuariosSalvos.map(
-            usuario => new ListaUsuarioDTO(
-                usuario.id,
-                usuario.nome
-            )
-        );
-
-        return usuarioLista;
+        return usuariosSalvos;
     }
 
     @Post()
