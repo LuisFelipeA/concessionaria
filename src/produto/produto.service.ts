@@ -10,9 +10,7 @@ export class ProdutoService {
         private readonly produtoRepository: Repository<ProdutoEntity>
     ){}
 
-    async criaProduto(ProdutoEntity: ProdutoEntity) {
-        await this.produtoRepository.save(ProdutoEntity);
+    async criaProduto(produtoEntity: ProdutoEntity) {
+        await this.produtoRepository.save(produtoEntity);
     }
-
-    
 }
