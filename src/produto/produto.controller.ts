@@ -5,11 +5,15 @@ import { ProdutoEntity } from "./produto.entity";
 import { v4 as uuid } from "uuid"; 
 import { ListaProdutoDTO } from "./dto/ListaProduto.dto";
 import { AtualizaProdutoDTO } from "./dto/AtualizaProduto.dto";
+import { ProdutoService } from "./produto.service";
 
 @Controller('/produtos')
 export class ProdutoController {
 
-    constructor (private produtoRepository: ProdutoRepository) {}
+    constructor (
+        private produtoRepository: ProdutoRepository,
+        private readonly produtoService: ProdutoService
+    ) {}
 
     @Get()
     async listaProdutos(){
@@ -31,7 +35,7 @@ export class ProdutoController {
         // produtoEntity.caracteristicas = dadosDoProduto.caracteristicas;
         // produtoEntity.imagens = dadosDoProduto.imagens;
         
-        this.produtoRepository.salvar(produtoEntity);
+        this.produtoService.criaProduto(produtoEntity);
 
         return { 
             produto: new ListaProdutoDTO(produtoEntity.id, produtoEntity.nome),
