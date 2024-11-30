@@ -1,8 +1,11 @@
 import { Type } from 'class-transformer';
 import {  ArrayMinSize,  IsArray,  IsNotEmpty,  IsNumber,  IsString,  IsUrl,  MaxLength,  Min,  ValidateNested} from 'class-validator';
 import { UsuarioIdEhUnico } from '../validacao/usuarioId-eh-unico.validator';
+import { ProdutoEntity } from '../produto.entity';
 
 export class CaracteristicaProdutoDTO {
+
+  id: string;
 
   @IsString()
   @IsNotEmpty({ message: 'Nome da cadasterística não pode ser vazio' })
@@ -12,9 +15,13 @@ export class CaracteristicaProdutoDTO {
   @IsNotEmpty({ message: 'Descrição da característica não pode ser vazio' })
   descricao: string;
 
+  produto: ProdutoEntity;
 }
 
 export class ImagemProdutoDTO {
+  
+  id: string;
+  
   @IsUrl(undefined ,{ message: 'URL para imagem inválida' })
   url: string;
 
@@ -22,6 +29,7 @@ export class ImagemProdutoDTO {
   @IsNotEmpty({ message: 'Descrição da imagem não pode ser vazia' })
   descricao: string;
 
+  produto: ProdutoEntity;
 }
 
 export class CriaProdutoDTO {
